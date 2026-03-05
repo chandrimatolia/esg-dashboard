@@ -1,0 +1,241 @@
+ticker,company,sector,country,pillar,metric_name,raw_value,normalised_score,lower_is_better
+AAPL,Apple Inc,Technology,USA,Environmental,Carbon Emissions (MT CO2e),22.5,91.7,True
+MSFT,Microsoft Corp,Technology,USA,Environmental,Carbon Emissions (MT CO2e),10.2,97.6,True
+GOOGL,Alphabet Inc,Technology,USA,Environmental,Carbon Emissions (MT CO2e),30.1,88.1,True
+AMZN,Amazon.com,Consumer Discretionary,USA,Environmental,Carbon Emissions (MT CO2e),71.5,68.3,True
+TSLA,Tesla Inc,Consumer Discretionary,USA,Environmental,Carbon Emissions (MT CO2e),5.1,100.0,True
+JPM,JPMorgan Chase,Financials,USA,Environmental,Carbon Emissions (MT CO2e),8.9,98.2,True
+JNJ,Johnson & Johnson,Healthcare,USA,Environmental,Carbon Emissions (MT CO2e),12.3,96.6,True
+XOM,Exxon Mobil,Energy,USA,Environmental,Carbon Emissions (MT CO2e),189.4,12.0,True
+CVX,Chevron Corp,Energy,USA,Environmental,Carbon Emissions (MT CO2e),152.1,29.8,True
+NEE,NextEra Energy,Utilities,USA,Environmental,Carbon Emissions (MT CO2e),18.2,93.7,True
+BP,BP plc,Energy,UK,Environmental,Carbon Emissions (MT CO2e),214.5,0.0,True
+SHEL,Shell plc,Energy,Netherlands,Environmental,Carbon Emissions (MT CO2e),198.3,7.7,True
+SAP,SAP SE,Technology,Germany,Environmental,Carbon Emissions (MT CO2e),14.1,95.7,True
+NESN,Nestle SA,Consumer Staples,Switzerland,Environmental,Carbon Emissions (MT CO2e),28.4,88.9,True
+TM,Toyota Motor,Consumer Discretionary,Japan,Environmental,Carbon Emissions (MT CO2e),45.2,80.9,True
+BHP,BHP Group,Materials,Australia,Environmental,Carbon Emissions (MT CO2e),58.9,74.3,True
+NOVN,Novartis AG,Healthcare,Switzerland,Environmental,Carbon Emissions (MT CO2e),8.1,98.6,True
+RIO,Rio Tinto,Materials,UK,Environmental,Carbon Emissions (MT CO2e),62.3,72.7,True
+ULVR,Unilever,Consumer Staples,UK,Environmental,Carbon Emissions (MT CO2e),24.6,90.7,True
+SIEGY,Siemens AG,Industrials,Germany,Environmental,Carbon Emissions (MT CO2e),19.8,93.0,True
+AAPL,Apple Inc,Technology,USA,Environmental,Renewable Energy (%),100.0,100.0,False
+MSFT,Microsoft Corp,Technology,USA,Environmental,Renewable Energy (%),100.0,100.0,False
+GOOGL,Alphabet Inc,Technology,USA,Environmental,Renewable Energy (%),100.0,100.0,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Environmental,Renewable Energy (%),40.0,34.8,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Environmental,Renewable Energy (%),85.0,83.7,False
+JPM,JPMorgan Chase,Financials,USA,Environmental,Renewable Energy (%),25.0,18.5,False
+JNJ,Johnson & Johnson,Healthcare,USA,Environmental,Renewable Energy (%),42.0,37.0,False
+XOM,Exxon Mobil,Energy,USA,Environmental,Renewable Energy (%),8.0,0.0,False
+CVX,Chevron Corp,Energy,USA,Environmental,Renewable Energy (%),12.0,4.3,False
+NEE,NextEra Energy,Utilities,USA,Environmental,Renewable Energy (%),68.0,65.2,False
+BP,BP plc,Energy,UK,Environmental,Renewable Energy (%),20.0,13.0,False
+SHEL,Shell plc,Energy,Netherlands,Environmental,Renewable Energy (%),18.0,10.9,False
+SAP,SAP SE,Technology,Germany,Environmental,Renewable Energy (%),78.0,76.1,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Environmental,Renewable Energy (%),52.0,47.8,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Environmental,Renewable Energy (%),38.0,32.6,False
+BHP,BHP Group,Materials,Australia,Environmental,Renewable Energy (%),22.0,15.2,False
+NOVN,Novartis AG,Healthcare,Switzerland,Environmental,Renewable Energy (%),65.0,62.0,False
+RIO,Rio Tinto,Materials,UK,Environmental,Renewable Energy (%),19.0,12.0,False
+ULVR,Unilever,Consumer Staples,UK,Environmental,Renewable Energy (%),59.0,55.4,False
+SIEGY,Siemens AG,Industrials,Germany,Environmental,Renewable Energy (%),72.0,69.6,False
+AAPL,Apple Inc,Technology,USA,Environmental,Water Usage Intensity,0.8,94.9,True
+MSFT,Microsoft Corp,Technology,USA,Environmental,Water Usage Intensity,0.6,97.4,True
+GOOGL,Alphabet Inc,Technology,USA,Environmental,Water Usage Intensity,1.1,91.0,True
+AMZN,Amazon.com,Consumer Discretionary,USA,Environmental,Water Usage Intensity,2.3,75.6,True
+TSLA,Tesla Inc,Consumer Discretionary,USA,Environmental,Water Usage Intensity,1.9,80.8,True
+JPM,JPMorgan Chase,Financials,USA,Environmental,Water Usage Intensity,0.4,100.0,True
+JNJ,Johnson & Johnson,Healthcare,USA,Environmental,Water Usage Intensity,1.2,89.7,True
+XOM,Exxon Mobil,Energy,USA,Environmental,Water Usage Intensity,5.6,33.3,True
+CVX,Chevron Corp,Energy,USA,Environmental,Water Usage Intensity,4.9,42.3,True
+NEE,NextEra Energy,Utilities,USA,Environmental,Water Usage Intensity,2.1,78.2,True
+BP,BP plc,Energy,UK,Environmental,Water Usage Intensity,6.1,26.9,True
+SHEL,Shell plc,Energy,Netherlands,Environmental,Water Usage Intensity,5.8,30.8,True
+SAP,SAP SE,Technology,Germany,Environmental,Water Usage Intensity,0.7,96.2,True
+NESN,Nestle SA,Consumer Staples,Switzerland,Environmental,Water Usage Intensity,3.4,61.5,True
+TM,Toyota Motor,Consumer Discretionary,Japan,Environmental,Water Usage Intensity,2.8,69.2,True
+BHP,BHP Group,Materials,Australia,Environmental,Water Usage Intensity,8.2,0.0,True
+NOVN,Novartis AG,Healthcare,Switzerland,Environmental,Water Usage Intensity,0.9,93.6,True
+RIO,Rio Tinto,Materials,UK,Environmental,Water Usage Intensity,7.8,5.1,True
+ULVR,Unilever,Consumer Staples,UK,Environmental,Water Usage Intensity,2.9,67.9,True
+SIEGY,Siemens AG,Industrials,Germany,Environmental,Water Usage Intensity,1.4,87.2,True
+AAPL,Apple Inc,Technology,USA,Environmental,Waste Recycling (%),78.0,90.9,False
+MSFT,Microsoft Corp,Technology,USA,Environmental,Waste Recycling (%),82.0,100.0,False
+GOOGL,Alphabet Inc,Technology,USA,Environmental,Waste Recycling (%),70.0,72.7,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Environmental,Waste Recycling (%),55.0,38.6,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Environmental,Waste Recycling (%),62.0,54.5,False
+JPM,JPMorgan Chase,Financials,USA,Environmental,Waste Recycling (%),68.0,68.2,False
+JNJ,Johnson & Johnson,Healthcare,USA,Environmental,Waste Recycling (%),74.0,81.8,False
+XOM,Exxon Mobil,Energy,USA,Environmental,Waste Recycling (%),41.0,6.8,False
+CVX,Chevron Corp,Energy,USA,Environmental,Waste Recycling (%),38.0,0.0,False
+NEE,NextEra Energy,Utilities,USA,Environmental,Waste Recycling (%),58.0,45.5,False
+BP,BP plc,Energy,UK,Environmental,Waste Recycling (%),44.0,13.6,False
+SHEL,Shell plc,Energy,Netherlands,Environmental,Waste Recycling (%),42.0,9.1,False
+SAP,SAP SE,Technology,Germany,Environmental,Waste Recycling (%),75.0,84.1,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Environmental,Waste Recycling (%),61.0,52.3,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Environmental,Waste Recycling (%),72.0,77.3,False
+BHP,BHP Group,Materials,Australia,Environmental,Waste Recycling (%),48.0,22.7,False
+NOVN,Novartis AG,Healthcare,Switzerland,Environmental,Waste Recycling (%),80.0,95.5,False
+RIO,Rio Tinto,Materials,UK,Environmental,Waste Recycling (%),45.0,15.9,False
+ULVR,Unilever,Consumer Staples,UK,Environmental,Waste Recycling (%),67.0,65.9,False
+SIEGY,Siemens AG,Industrials,Germany,Environmental,Waste Recycling (%),70.0,72.7,False
+AAPL,Apple Inc,Technology,USA,Social,Employee Turnover (%),12.1,80.0,True
+MSFT,Microsoft Corp,Technology,USA,Social,Employee Turnover (%),8.9,92.8,True
+GOOGL,Alphabet Inc,Technology,USA,Social,Employee Turnover (%),14.2,71.6,True
+AMZN,Amazon.com,Consumer Discretionary,USA,Social,Employee Turnover (%),25.3,27.2,True
+TSLA,Tesla Inc,Consumer Discretionary,USA,Social,Employee Turnover (%),32.1,0.0,True
+JPM,JPMorgan Chase,Financials,USA,Social,Employee Turnover (%),18.5,54.4,True
+JNJ,Johnson & Johnson,Healthcare,USA,Social,Employee Turnover (%),11.2,83.6,True
+XOM,Exxon Mobil,Energy,USA,Social,Employee Turnover (%),9.8,89.2,True
+CVX,Chevron Corp,Energy,USA,Social,Employee Turnover (%),10.1,88.0,True
+NEE,NextEra Energy,Utilities,USA,Social,Employee Turnover (%),8.5,94.4,True
+BP,BP plc,Energy,UK,Social,Employee Turnover (%),11.3,83.2,True
+SHEL,Shell plc,Energy,Netherlands,Social,Employee Turnover (%),10.5,86.4,True
+SAP,SAP SE,Technology,Germany,Social,Employee Turnover (%),9.2,91.6,True
+NESN,Nestle SA,Consumer Staples,Switzerland,Social,Employee Turnover (%),13.8,73.2,True
+TM,Toyota Motor,Consumer Discretionary,Japan,Social,Employee Turnover (%),7.1,100.0,True
+BHP,BHP Group,Materials,Australia,Social,Employee Turnover (%),12.4,78.8,True
+NOVN,Novartis AG,Healthcare,Switzerland,Social,Employee Turnover (%),10.3,87.2,True
+RIO,Rio Tinto,Materials,UK,Social,Employee Turnover (%),13.1,76.0,True
+ULVR,Unilever,Consumer Staples,UK,Social,Employee Turnover (%),12.5,78.4,True
+SIEGY,Siemens AG,Industrials,Germany,Social,Employee Turnover (%),8.8,93.2,True
+AAPL,Apple Inc,Technology,USA,Social,Gender Diversity (%),35.0,57.1,False
+MSFT,Microsoft Corp,Technology,USA,Social,Gender Diversity (%),34.0,54.3,False
+GOOGL,Alphabet Inc,Technology,USA,Social,Gender Diversity (%),33.0,51.4,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Social,Gender Diversity (%),45.0,85.7,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Social,Gender Diversity (%),28.0,37.1,False
+JPM,JPMorgan Chase,Financials,USA,Social,Gender Diversity (%),42.0,77.1,False
+JNJ,Johnson & Johnson,Healthcare,USA,Social,Gender Diversity (%),48.0,94.3,False
+XOM,Exxon Mobil,Energy,USA,Social,Gender Diversity (%),22.0,20.0,False
+CVX,Chevron Corp,Energy,USA,Social,Gender Diversity (%),24.0,25.7,False
+NEE,NextEra Energy,Utilities,USA,Social,Gender Diversity (%),39.0,68.6,False
+BP,BP plc,Energy,UK,Social,Gender Diversity (%),31.0,45.7,False
+SHEL,Shell plc,Energy,Netherlands,Social,Gender Diversity (%),28.0,37.1,False
+SAP,SAP SE,Technology,Germany,Social,Gender Diversity (%),43.0,80.0,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Social,Gender Diversity (%),47.0,91.4,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Social,Gender Diversity (%),15.0,0.0,False
+BHP,BHP Group,Materials,Australia,Social,Gender Diversity (%),18.0,8.6,False
+NOVN,Novartis AG,Healthcare,Switzerland,Social,Gender Diversity (%),46.0,88.6,False
+RIO,Rio Tinto,Materials,UK,Social,Gender Diversity (%),20.0,14.3,False
+ULVR,Unilever,Consumer Staples,UK,Social,Gender Diversity (%),50.0,100.0,False
+SIEGY,Siemens AG,Industrials,Germany,Social,Gender Diversity (%),38.0,65.7,False
+AAPL,Apple Inc,Technology,USA,Social,Safety Incident Rate,0.3,95.0,True
+MSFT,Microsoft Corp,Technology,USA,Social,Safety Incident Rate,0.2,97.5,True
+GOOGL,Alphabet Inc,Technology,USA,Social,Safety Incident Rate,0.4,92.5,True
+AMZN,Amazon.com,Consumer Discretionary,USA,Social,Safety Incident Rate,1.8,57.5,True
+TSLA,Tesla Inc,Consumer Discretionary,USA,Social,Safety Incident Rate,2.1,50.0,True
+JPM,JPMorgan Chase,Financials,USA,Social,Safety Incident Rate,0.1,100.0,True
+JNJ,Johnson & Johnson,Healthcare,USA,Social,Safety Incident Rate,0.5,90.0,True
+XOM,Exxon Mobil,Energy,USA,Social,Safety Incident Rate,3.2,22.5,True
+CVX,Chevron Corp,Energy,USA,Social,Safety Incident Rate,2.9,30.0,True
+NEE,NextEra Energy,Utilities,USA,Social,Safety Incident Rate,0.8,82.5,True
+BP,BP plc,Energy,UK,Social,Safety Incident Rate,3.8,7.5,True
+SHEL,Shell plc,Energy,Netherlands,Social,Safety Incident Rate,3.5,15.0,True
+SAP,SAP SE,Technology,Germany,Social,Safety Incident Rate,0.3,95.0,True
+NESN,Nestle SA,Consumer Staples,Switzerland,Social,Safety Incident Rate,0.9,80.0,True
+TM,Toyota Motor,Consumer Discretionary,Japan,Social,Safety Incident Rate,1.2,72.5,True
+BHP,BHP Group,Materials,Australia,Social,Safety Incident Rate,4.1,0.0,True
+NOVN,Novartis AG,Healthcare,Switzerland,Social,Safety Incident Rate,0.4,92.5,True
+RIO,Rio Tinto,Materials,UK,Social,Safety Incident Rate,3.9,5.0,True
+ULVR,Unilever,Consumer Staples,UK,Social,Safety Incident Rate,0.7,85.0,True
+SIEGY,Siemens AG,Industrials,Germany,Social,Safety Incident Rate,0.6,87.5,True
+AAPL,Apple Inc,Technology,USA,Social,Community Investment ($M),150.0,31.3,False
+MSFT,Microsoft Corp,Technology,USA,Social,Community Investment ($M),280.0,70.1,False
+GOOGL,Alphabet Inc,Technology,USA,Social,Community Investment ($M),120.0,22.4,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Social,Community Investment ($M),95.0,14.9,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Social,Community Investment ($M),45.0,0.0,False
+JPM,JPMorgan Chase,Financials,USA,Social,Community Investment ($M),380.0,100.0,False
+JNJ,Johnson & Johnson,Healthcare,USA,Social,Community Investment ($M),220.0,52.2,False
+XOM,Exxon Mobil,Energy,USA,Social,Community Investment ($M),85.0,11.9,False
+CVX,Chevron Corp,Energy,USA,Social,Community Investment ($M),78.0,9.9,False
+NEE,NextEra Energy,Utilities,USA,Social,Community Investment ($M),65.0,6.0,False
+BP,BP plc,Energy,UK,Social,Community Investment ($M),92.0,14.0,False
+SHEL,Shell plc,Energy,Netherlands,Social,Community Investment ($M),88.0,12.8,False
+SAP,SAP SE,Technology,Germany,Social,Community Investment ($M),105.0,17.9,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Social,Community Investment ($M),140.0,28.4,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Social,Community Investment ($M),180.0,40.3,False
+BHP,BHP Group,Materials,Australia,Social,Community Investment ($M),95.0,14.9,False
+NOVN,Novartis AG,Healthcare,Switzerland,Social,Community Investment ($M),190.0,43.3,False
+RIO,Rio Tinto,Materials,UK,Social,Community Investment ($M),88.0,12.8,False
+ULVR,Unilever,Consumer Staples,UK,Social,Community Investment ($M),165.0,35.8,False
+SIEGY,Siemens AG,Industrials,Germany,Social,Community Investment ($M),125.0,23.9,False
+AAPL,Apple Inc,Technology,USA,Governance,Board Independence (%),85.0,81.1,False
+MSFT,Microsoft Corp,Technology,USA,Governance,Board Independence (%),92.0,100.0,False
+GOOGL,Alphabet Inc,Technology,USA,Governance,Board Independence (%),78.0,62.2,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Governance,Board Independence (%),65.0,27.0,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Governance,Board Independence (%),55.0,0.0,False
+JPM,JPMorgan Chase,Financials,USA,Governance,Board Independence (%),82.0,73.0,False
+JNJ,Johnson & Johnson,Healthcare,USA,Governance,Board Independence (%),88.0,89.2,False
+XOM,Exxon Mobil,Energy,USA,Governance,Board Independence (%),72.0,45.9,False
+CVX,Chevron Corp,Energy,USA,Governance,Board Independence (%),75.0,54.1,False
+NEE,NextEra Energy,Utilities,USA,Governance,Board Independence (%),90.0,94.6,False
+BP,BP plc,Energy,UK,Governance,Board Independence (%),68.0,35.1,False
+SHEL,Shell plc,Energy,Netherlands,Governance,Board Independence (%),70.0,40.5,False
+SAP,SAP SE,Technology,Germany,Governance,Board Independence (%),88.0,89.2,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Governance,Board Independence (%),85.0,81.1,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Governance,Board Independence (%),60.0,13.5,False
+BHP,BHP Group,Materials,Australia,Governance,Board Independence (%),78.0,62.2,False
+NOVN,Novartis AG,Healthcare,Switzerland,Governance,Board Independence (%),90.0,94.6,False
+RIO,Rio Tinto,Materials,UK,Governance,Board Independence (%),75.0,54.1,False
+ULVR,Unilever,Consumer Staples,UK,Governance,Board Independence (%),88.0,89.2,False
+SIEGY,Siemens AG,Industrials,Germany,Governance,Board Independence (%),85.0,81.1,False
+AAPL,Apple Inc,Technology,USA,Governance,Exec Pay Ratio,201.0,69.2,True
+MSFT,Microsoft Corp,Technology,USA,Governance,Exec Pay Ratio,185.0,74.0,True
+GOOGL,Alphabet Inc,Technology,USA,Governance,Exec Pay Ratio,312.0,35.9,True
+AMZN,Amazon.com,Consumer Discretionary,USA,Governance,Exec Pay Ratio,289.0,42.8,True
+TSLA,Tesla Inc,Consumer Discretionary,USA,Governance,Exec Pay Ratio,432.0,0.0,True
+JPM,JPMorgan Chase,Financials,USA,Governance,Exec Pay Ratio,278.0,46.1,True
+JNJ,Johnson & Johnson,Healthcare,USA,Governance,Exec Pay Ratio,195.0,71.0,True
+XOM,Exxon Mobil,Energy,USA,Governance,Exec Pay Ratio,145.0,85.9,True
+CVX,Chevron Corp,Energy,USA,Governance,Exec Pay Ratio,168.0,79.0,True
+NEE,NextEra Energy,Utilities,USA,Governance,Exec Pay Ratio,112.0,95.8,True
+BP,BP plc,Energy,UK,Governance,Exec Pay Ratio,122.0,92.8,True
+SHEL,Shell plc,Energy,Netherlands,Governance,Exec Pay Ratio,134.0,89.2,True
+SAP,SAP SE,Technology,Germany,Governance,Exec Pay Ratio,142.0,86.8,True
+NESN,Nestle SA,Consumer Staples,Switzerland,Governance,Exec Pay Ratio,165.0,79.9,True
+TM,Toyota Motor,Consumer Discretionary,Japan,Governance,Exec Pay Ratio,98.0,100.0,True
+BHP,BHP Group,Materials,Australia,Governance,Exec Pay Ratio,125.0,91.9,True
+NOVN,Novartis AG,Healthcare,Switzerland,Governance,Exec Pay Ratio,155.0,82.9,True
+RIO,Rio Tinto,Materials,UK,Governance,Exec Pay Ratio,118.0,94.0,True
+ULVR,Unilever,Consumer Staples,UK,Governance,Exec Pay Ratio,145.0,85.9,True
+SIEGY,Siemens AG,Industrials,Germany,Governance,Exec Pay Ratio,138.0,88.0,True
+AAPL,Apple Inc,Technology,USA,Governance,Audit Committee Quality,9.0,80.0,False
+MSFT,Microsoft Corp,Technology,USA,Governance,Audit Committee Quality,10.0,100.0,False
+GOOGL,Alphabet Inc,Technology,USA,Governance,Audit Committee Quality,8.0,60.0,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Governance,Audit Committee Quality,6.0,20.0,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Governance,Audit Committee Quality,5.0,0.0,False
+JPM,JPMorgan Chase,Financials,USA,Governance,Audit Committee Quality,8.0,60.0,False
+JNJ,Johnson & Johnson,Healthcare,USA,Governance,Audit Committee Quality,9.0,80.0,False
+XOM,Exxon Mobil,Energy,USA,Governance,Audit Committee Quality,6.0,20.0,False
+CVX,Chevron Corp,Energy,USA,Governance,Audit Committee Quality,6.0,20.0,False
+NEE,NextEra Energy,Utilities,USA,Governance,Audit Committee Quality,9.0,80.0,False
+BP,BP plc,Energy,UK,Governance,Audit Committee Quality,5.0,0.0,False
+SHEL,Shell plc,Energy,Netherlands,Governance,Audit Committee Quality,6.0,20.0,False
+SAP,SAP SE,Technology,Germany,Governance,Audit Committee Quality,9.0,80.0,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Governance,Audit Committee Quality,8.0,60.0,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Governance,Audit Committee Quality,7.0,40.0,False
+BHP,BHP Group,Materials,Australia,Governance,Audit Committee Quality,7.0,40.0,False
+NOVN,Novartis AG,Healthcare,Switzerland,Governance,Audit Committee Quality,9.0,80.0,False
+RIO,Rio Tinto,Materials,UK,Governance,Audit Committee Quality,7.0,40.0,False
+ULVR,Unilever,Consumer Staples,UK,Governance,Audit Committee Quality,9.0,80.0,False
+SIEGY,Siemens AG,Industrials,Germany,Governance,Audit Committee Quality,8.0,60.0,False
+AAPL,Apple Inc,Technology,USA,Governance,Shareholder Rights Score,8.0,75.0,False
+MSFT,Microsoft Corp,Technology,USA,Governance,Shareholder Rights Score,9.0,100.0,False
+GOOGL,Alphabet Inc,Technology,USA,Governance,Shareholder Rights Score,7.0,50.0,False
+AMZN,Amazon.com,Consumer Discretionary,USA,Governance,Shareholder Rights Score,6.0,25.0,False
+TSLA,Tesla Inc,Consumer Discretionary,USA,Governance,Shareholder Rights Score,5.0,0.0,False
+JPM,JPMorgan Chase,Financials,USA,Governance,Shareholder Rights Score,7.0,50.0,False
+JNJ,Johnson & Johnson,Healthcare,USA,Governance,Shareholder Rights Score,8.0,75.0,False
+XOM,Exxon Mobil,Energy,USA,Governance,Shareholder Rights Score,6.0,25.0,False
+CVX,Chevron Corp,Energy,USA,Governance,Shareholder Rights Score,6.0,25.0,False
+NEE,NextEra Energy,Utilities,USA,Governance,Shareholder Rights Score,8.0,75.0,False
+BP,BP plc,Energy,UK,Governance,Shareholder Rights Score,5.0,0.0,False
+SHEL,Shell plc,Energy,Netherlands,Governance,Shareholder Rights Score,6.0,25.0,False
+SAP,SAP SE,Technology,Germany,Governance,Shareholder Rights Score,8.0,75.0,False
+NESN,Nestle SA,Consumer Staples,Switzerland,Governance,Shareholder Rights Score,8.0,75.0,False
+TM,Toyota Motor,Consumer Discretionary,Japan,Governance,Shareholder Rights Score,6.0,25.0,False
+BHP,BHP Group,Materials,Australia,Governance,Shareholder Rights Score,7.0,50.0,False
+NOVN,Novartis AG,Healthcare,Switzerland,Governance,Shareholder Rights Score,9.0,100.0,False
+RIO,Rio Tinto,Materials,UK,Governance,Shareholder Rights Score,7.0,50.0,False
+ULVR,Unilever,Consumer Staples,UK,Governance,Shareholder Rights Score,8.0,75.0,False
+SIEGY,Siemens AG,Industrials,Germany,Governance,Shareholder Rights Score,8.0,75.0,False

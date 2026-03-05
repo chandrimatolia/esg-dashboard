@@ -1,0 +1,61 @@
+ticker,company,sector,country,market_cap_bn,esg_score,esg_rating,esg_band,pillar_score,pillar
+AAPL,Apple Inc,Technology,USA,2900,75.9,A,Leader,85.1,Environmental
+MSFT,Microsoft Corp,Technology,USA,2800,84.1,A,Leader,88.9,Environmental
+GOOGL,Alphabet Inc,Technology,USA,1700,66.4,B+,Average,79.5,Environmental
+AMZN,Amazon.com,Consumer Discretionary,USA,1600,44.2,C,Laggard,48.1,Environmental
+TSLA,Tesla Inc,Consumer Discretionary,USA,780,35.8,C,Laggard,72.2,Environmental
+JPM,JPMorgan Chase,Financials,USA,490,66.1,B+,Average,62.6,Environmental
+JNJ,Johnson & Johnson,Healthcare,USA,420,73.0,B+,Average,67.2,Environmental
+XOM,Exxon Mobil,Energy,USA,450,28.6,D,Critical,10.0,Environmental
+CVX,Chevron Corp,Energy,USA,290,32.2,C,Critical,16.2,Environmental
+NEE,NextEra Energy,Utilities,USA,115,67.8,B+,Average,64.5,Environmental
+BP,BP plc,Energy,UK,100,26.2,D,Critical,10.4,Environmental
+SHEL,Shell plc,Energy,Netherlands,210,29.7,D,Critical,11.9,Environmental
+SAP,SAP SE,Technology,Germany,185,76.1,A,Leader,79.0,Environmental
+NESN,Nestle SA,Consumer Staples,Switzerland,290,64.4,B,Average,56.4,Environmental
+TM,Toyota Motor,Consumer Discretionary,Japan,240,53.7,C+,Laggard,57.4,Environmental
+BHP,BHP Group,Materials,Australia,145,35.5,C,Laggard,26.2,Environmental
+NOVN,Novartis AG,Healthcare,Switzerland,195,79.1,A,Leader,77.9,Environmental
+RIO,Rio Tinto,Materials,UK,105,34.8,C,Critical,24.6,Environmental
+ULVR,Unilever,Consumer Staples,UK,120,70.8,B+,Average,63.1,Environmental
+SIEGY,Siemens AG,Industrials,Germany,130,71.1,B+,Average,72.6,Environmental
+AAPL,Apple Inc,Technology,USA,2900,75.9,A,Leader,62.4,Social
+MSFT,Microsoft Corp,Technology,USA,2800,84.1,A,Leader,70.9,Social
+GOOGL,Alphabet Inc,Technology,USA,1700,66.4,B+,Average,56.1,Social
+AMZN,Amazon.com,Consumer Discretionary,USA,1600,44.2,C,Laggard,43.2,Social
+TSLA,Tesla Inc,Consumer Discretionary,USA,780,35.8,C,Laggard,19.9,Social
+JPM,JPMorgan Chase,Financials,USA,490,66.1,B+,Average,71.3,Social
+JNJ,Johnson & Johnson,Healthcare,USA,420,73.0,B+,Average,72.9,Social
+XOM,Exxon Mobil,Energy,USA,450,28.6,D,Critical,32.6,Social
+CVX,Chevron Corp,Energy,USA,290,32.2,C,Critical,35.4,Social
+NEE,NextEra Energy,Utilities,USA,115,67.8,B+,Average,56.6,Social
+BP,BP plc,Energy,UK,100,26.2,D,Critical,32.8,Social
+SHEL,Shell plc,Energy,Netherlands,210,29.7,D,Critical,34.0,Social
+SAP,SAP SE,Technology,Germany,185,76.1,A,Leader,66.0,Social
+NESN,Nestle SA,Consumer Staples,Switzerland,290,64.4,B,Average,63.5,Social
+TM,Toyota Motor,Consumer Discretionary,Japan,240,53.7,C+,Laggard,51.1,Social
+BHP,BHP Group,Materials,Australia,145,35.5,C,Laggard,23.7,Social
+NOVN,Novartis AG,Healthcare,Switzerland,195,79.1,A,Leader,71.7,Social
+RIO,Rio Tinto,Materials,UK,105,34.8,C,Critical,24.8,Social
+ULVR,Unilever,Consumer Staples,UK,120,70.8,B+,Average,69.1,Social
+SIEGY,Siemens AG,Industrials,Germany,130,71.1,B+,Average,63.2,Social
+AAPL,Apple Inc,Technology,USA,2900,75.9,A,Leader,80.1,Governance
+MSFT,Microsoft Corp,Technology,USA,2800,84.1,A,Leader,94.8,Governance
+GOOGL,Alphabet Inc,Technology,USA,1700,66.4,B+,Average,59.7,Governance
+AMZN,Amazon.com,Consumer Discretionary,USA,1600,44.2,C,Laggard,39.3,Governance
+TSLA,Tesla Inc,Consumer Discretionary,USA,780,35.8,C,Laggard,0.0,Governance
+JPM,JPMorgan Chase,Financials,USA,490,66.1,B+,Average,64.5,Governance
+JNJ,Johnson & Johnson,Healthcare,USA,420,73.0,B+,Average,82.5,Governance
+XOM,Exxon Mobil,Energy,USA,450,28.6,D,Critical,52.7,Governance
+CVX,Chevron Corp,Energy,USA,290,32.2,C,Critical,53.3,Governance
+NEE,NextEra Energy,Utilities,USA,115,67.8,B+,Average,88.8,Governance
+BP,BP plc,Energy,UK,100,26.2,D,Critical,42.3,Governance
+SHEL,Shell plc,Energy,Netherlands,210,29.7,D,Critical,52.0,Governance
+SAP,SAP SE,Technology,Germany,185,76.1,A,Leader,85.7,Governance
+NESN,Nestle SA,Consumer Staples,Switzerland,290,64.4,B,Average,78.3,Governance
+TM,Toyota Motor,Consumer Discretionary,Japan,240,53.7,C+,Laggard,51.4,Governance
+BHP,BHP Group,Materials,Australia,145,35.5,C,Laggard,66.9,Governance
+NOVN,Novartis AG,Healthcare,Switzerland,195,79.1,A,Leader,91.2,Governance
+RIO,Rio Tinto,Materials,UK,105,34.8,C,Critical,65.3,Governance
+ULVR,Unilever,Consumer Staples,UK,120,70.8,B+,Average,85.5,Governance
+SIEGY,Siemens AG,Industrials,Germany,130,71.1,B+,Average,79.9,Governance

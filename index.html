@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ESG Scoring Dashboard</title>
+  <style>
+    body { font-family: sans-serif; background: #1a1a2e; color: white; margin: 0; padding: 20px; }
+    h1 { text-align: center; color: #00d4aa; }
+    .subtitle { text-align: center; color: #aaa; margin-bottom: 30px; }
+    .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1400px; margin: auto; }
+    iframe { width: 100%; height: 500px; border: none; border-radius: 8px; background: white; }
+    .full-width { grid-column: 1 / -1; }
+    h2 { color: #00d4aa; margin-top: 40px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>🌍 ESG Scoring Dashboard</h1>
+  <p class="subtitle">Environmental · Social · Governance | 20 Global Companies | 2023</p>
+  <div class="chart-grid">
+    <div class="full-width"><iframe src="output/charts/01_leaderboard.html"></iframe></div>
+    <iframe src="output/charts/02_pillar_breakdown.html"></iframe>
+    <iframe src="output/charts/03_env_vs_social_scatter.html"></iframe>
+    <iframe src="output/charts/04_sector_heatmap.html"></iframe>
+    <iframe src="output/charts/06_distribution.html"></iframe>
+    <div class="full-width"><iframe src="output/charts/05_radar_top_vs_bottom.html"></iframe></div>
+  </div>
+</body>
+</html>

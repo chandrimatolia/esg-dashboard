@@ -1,0 +1,10 @@
+sector,company_count,avg_esg,avg_env,avg_soc,avg_gov,top_company,top_esg
+Consumer Discretionary,3,44.6,59.2,38.1,30.2,Toyota Motor,53.7
+Consumer Staples,2,67.6,59.8,66.3,81.9,Unilever,70.8
+Energy,4,29.2,12.1,33.7,50.1,Chevron Corp,32.2
+Financials,1,66.1,62.6,71.3,64.5,JPMorgan Chase,66.1
+Healthcare,2,76.0,72.6,72.3,86.8,Novartis AG,79.1
+Industrials,1,71.1,72.6,63.2,79.9,Siemens AG,71.1
+Materials,2,35.2,25.4,24.2,66.1,BHP Group,35.5
+Technology,4,75.6,83.1,63.8,80.1,Microsoft Corp,84.1
+Utilities,1,67.8,64.5,56.6,88.8,NextEra Energy,67.8

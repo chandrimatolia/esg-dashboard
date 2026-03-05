@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "scoring_date": "2026-03-05",
+  "pillars": {
+    "Environmental": {
+      "weight": "40%",
+      "metrics": [
+        "Carbon Emissions",
+        "Renewable Energy",
+        "Water Usage",
+        "Waste Recycling",
+        "Env Controversies"
+      ]
+    },
+    "Social": {
+      "weight": "35%",
+      "metrics": [
+        "Employee Turnover",
+        "Gender Diversity",
+        "Safety Incidents",
+        "Community Investment",
+        "Data Breaches"
+      ]
+    },
+    "Governance": {
+      "weight": "25%",
+      "metrics": [
+        "Board Independence",
+        "Exec Pay Ratio",
+        "Audit Quality",
+        "Anti-Corruption Policy",
+        "Shareholder Rights"
+      ]
+    }
+  },
+  "rating_bands": {
+    "A+": "85\u2013100",
+    "A": "75\u201385",
+    "B+": "65\u201375",
+    "B": "55\u201365",
+    "C+": "45\u201355",
+    "C": "30\u201345",
+    "D": "0\u201330"
+  },
+  "normalisation": "Min-max scaling within full universe; lower-is-better metrics inverted",
+  "companies_scored": 20
+}
