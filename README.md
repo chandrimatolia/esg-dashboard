@@ -55,24 +55,6 @@ esg_dashboard/
 
 ---
 
-## Quick Start
-
-```bash
-# 1. Run the scoring engine
-python esg_scoring_engine.py
-
-# 2. (Optional) Generate Plotly charts locally
-pip install plotly
-python esg_visualisations.py
-
-# 3. Open output/charts/*.html in browser for interactive charts
-
-# 4. Connect Tableau to the 4 output CSV files
-#    (see TABLEAU_SETUP_GUIDE.md)
-```
-
----
-
 ## Data Sources (for real-world extension)
 
 To replace synthetic data with real public data:
