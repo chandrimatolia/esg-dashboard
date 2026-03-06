@@ -20,7 +20,7 @@ esg_dashboard/
 │   ├── esg_sector_summary.csv    # Sector-level KPIs
 │   └── scoring_framework.json   # Methodology metadata
 ├── esg_scoring_engine.py         # Core scoring pipeline
-├── esg_visualisations.py         # Plotly charts (run locally)
+├── esg_visualisations.py         # Plotly charts
 └── README.md
 ```
 
