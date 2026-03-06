@@ -21,7 +21,6 @@ esg_dashboard/
 │   └── scoring_framework.json   # Methodology metadata
 ├── esg_scoring_engine.py         # Core scoring pipeline
 ├── esg_visualisations.py         # Plotly charts (run locally)
-├── TABLEAU_SETUP_GUIDE.md        # Step-by-step Tableau instructions
 └── README.md
 ```
 
