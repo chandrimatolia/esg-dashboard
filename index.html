@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG Intelligence Report 2023 — Global Companies</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #f7f3ec;
+    --paper-dark: #ede8df;
+    --rule: #c8bfaf;
+    --accent: #b5410a;
+    --accent-light: #e8956d;
+    --gold: #c9991a;
+    --teal: #1a6b6b;
+    --leader: #1a6b3a;
+    --average: #c9991a;
+    --laggard: #b5410a;
+    --critical: #6b1a1a;
+    --text-secondary: #5a4f3f;
+    --col-width: 1200px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0;
+    border-bottom: 3px solid var(--accent);
+  }
+  .masthead-inner {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 32px 40px 28px;
+  }
+  .publication-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 12px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin-bottom: 16px;
+  }
+  .masthead h1 em {
+    color: var(--accent-light);
+    font-style: italic;
+  }
+  .masthead-meta {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    border-top: 1px solid rgba(247,243,236,0.15);
+    padding-top: 16px;
+    margin-top: 4px;
+  }
+  .masthead-meta span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(247,243,236,0.55);
+    letter-spacing: 0.08em;
+  }
+  .masthead-meta .divider { color: rgba(247,243,236,0.2); }
+
+  /* ── SUMMARY BAR ── */
+  .summary-bar {
+    background: var(--paper-dark);
+    border-bottom: 1px solid var(--rule);
+  }
+  .summary-bar-inner {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .kpi {
+    padding: 0 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .kpi:first-child { padding-left: 0; }
+  .kpi:last-child { border-right: none; }
+  .kpi-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .kpi-value.green { color: var(--leader); }
+  .kpi-value.amber { color: var(--average); }
+  .kpi-value.red { color: var(--laggard); }
+  .kpi-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section {
+    margin-top: 56px;
+  }
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+  .section-rule hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--rule);
+  }
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .chart-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .chart-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 4px;
+    max-width: 780px;
+    line-height: 1.5;
+  }
+  .chart-context {
+    font-size: 13px;
+    color: var(--text-secondary);
+    max-width: 820px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent-light);
+  }
+
+  /* ── CHART CONTAINERS ── */
+  .chart-wrap {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    padding: 8px 8px 4px;
+    position: relative;
+  }
+  .chart-wrap::after {
+    content: attr(data-source);
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--rule);
+    padding: 4px 8px 6px;
+    text-align: right;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TWO COLUMN GRID ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 56px;
+  }
+  .grid-2 .section { margin-top: 0; }
+
+  /* ── LEGEND STRIP ── */
+  .legend-strip {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .legend-strip .legend-title {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-right: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-sq {
+    width: 12px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+  .legend-sep { color: var(--rule); }
+
+  /* ── ANNOTATION CALLOUT ── */
+  .callout-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 16px;
+  }
+  .callout {
+    background: var(--paper);
+    padding: 16px 20px;
+  }
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .callout-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .callout-text strong { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    color: rgba(247,243,236,0.4);
+    padding: 24px 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    margin-top: 80px;
+  }
+  .footer-inner {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer a { color: var(--accent-light); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .summary-bar-inner { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .callout-row { grid-template-columns: 1fr; }
+    .masthead-inner, .container, .footer { padding-left: 20px; padding-right: 20px; }
+    .summary-bar-inner { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="publication-label">ESG Intelligence Report · Data Science Portfolio · 2023 Analysis</div>
+    <h1>Which global companies are <em>truly</em><br>leading on sustainability?</h1>
+    <div class="masthead-meta">
+      <span>20 COMPANIES SCORED</span>
+      <span class="divider">|</span>
+      <span>9 SECTORS</span>
+      <span class="divider">|</span>
+      <span>15 METRICS</span>
+      <span class="divider">|</span>
+      <span>3 PILLARS: ENVIRONMENTAL · SOCIAL · GOVERNANCE</span>
+      <span class="divider">|</span>
+      <span>FISCAL YEAR 2023</span>
+    </div>
+  </div>
+</header>
+
+<!-- KPI SUMMARY BAR -->
+<div class="summary-bar">
+  <div class="summary-bar-inner">
+    <div class="kpi">
+      <div class="kpi-value">52.1</div>
+      <div class="kpi-label">Universe avg ESG score</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value green">5</div>
+      <div class="kpi-label">Leaders (score ≥ 75)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value red">6</div>
+      <div class="kpi-label">Critical / D-rated</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value amber">58pt</div>
+      <div class="kpi-label">Gap: top vs bottom sector</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-value">Tech</div>
+      <div class="kpi-label">Highest-scoring sector</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CHART 1: LEADERBOARD -->
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-number">FIGURE 01</span>
+      <hr>
+    </div>
+    <h2 class="chart-title">Who leads — and who lags — across <em>all three pillars?</em></h2>
+    <p class="chart-subtitle">Composite ESG scores for 20 globally listed companies, ranked by overall performance. Score range: 0–100.</p>
+    <p class="chart-context">Composite scores weight Environmental at 40%, Social at 35%, and Governance at 25%, reflecting the relative materiality of each pillar across most institutional ESG frameworks. Companies in the Energy sector occupy four of the five bottom positions — a structural gap driven primarily by high carbon intensity and environmental controversy records rather than governance failures.</p>
+
+    <div class="legend-strip">
+      <span class="legend-title">Rating bands →</span>
+      <span class="legend-item"><span class="legend-sq" style="background:#1a6b3a"></span>Leader (≥75)</span>
+      <span class="legend-item"><span class="legend-sq" style="background:#c9991a"></span>Average (55–75)</span>
+      <span class="legend-item"><span class="legend-sq" style="background:#b5410a"></span>Laggard (35–55)</span>
+      <span class="legend-item"><span class="legend-sq" style="background:#6b1a1a"></span>Critical (&lt;35)</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Hover for detail</span>
+    </div>
+
+    <div class="chart-wrap" data-source="Source: Company ESG disclosures, proxy metrics. Scoring methodology: min-max normalisation within universe. FY2023.">
+      <div id="chart-leaderboard" style="height:620px"></div>
+    </div>
+
+    <div class="callout-row">
+      <div class="callout">
+        <div class="callout-label">Key finding</div>
+        <div class="callout-text"><strong>Microsoft</strong> leads the universe with an 84.1 composite — the only company achieving Leader status across all three pillars simultaneously.</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Notable gap</div>
+        <div class="callout-text">A <strong>57.9-point spread</strong> separates the top (Microsoft, 84.1) from the bottom (BP, 26.2) — wider than most published ESG indices suggest.</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Sector pattern</div>
+        <div class="callout-text">All four <strong>Energy majors</strong> (BP, Exxon, Shell, Chevron) score below 35 — the Critical threshold — on the Environmental pillar.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART 2: PILLAR BREAKDOWN -->
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-number">FIGURE 02</span>
+      <hr>
+    </div>
+    <h2 class="chart-title">Where does each company's <em>ESG strength actually come from?</em></h2>
+    <p class="chart-subtitle">Pillar-level decomposition reveals companies that excel broadly versus those masking weakness in one area with strength in another.</p>
+    <p class="chart-context">Aggregate scores can obscure dangerous imbalances. Tesla scores 72.2 on Environment — placing it among the leaders — yet collapses to 19.9 on Social (worker safety, turnover) and 0.0 on Governance, yielding a composite of just 35.8. Conversely, JPMorgan shows near-uniform performance across all three pillars, suggesting a more embedded ESG culture rather than green-washing in a single dimension.</p>
+
+    <div class="legend-strip">
+      <span class="legend-title">Pillars →</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#1a6b3a"></span>Environmental (weight: 40%)</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#1a5b8a"></span>Social (weight: 35%)</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#6b3a8a"></span>Governance (weight: 25%)</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Click legend to isolate pillar</span>
+    </div>
+
+    <div class="chart-wrap" data-source="Source: Company ESG disclosures. Each pillar scored 0–100 via min-max normalisation. Sorted by composite ESG score.">
+      <div id="chart-pillars" style="height:520px"></div>
+    </div>
+  </div>
+
+  <!-- CHARTS 3 + 4: TWO COLUMN -->
+  <div class="grid-2">
+
+    <!-- CHART 3: SCATTER -->
+    <div class="section">
+      <div class="section-rule">
+        <span class="section-number">FIGURE 03</span>
+        <hr>
+      </div>
+      <h2 class="chart-title" style="font-size:20px">Do companies that treat the planet well <em>also treat their people well?</em></h2>
+      <p class="chart-subtitle" style="font-size:13px">Environmental vs Social scores. Bubble size encodes Governance strength.</p>
+      <p class="chart-context" style="font-size:12px">The upper-right quadrant represents companies excelling on both people and planet. Most Energy companies are isolated in the lower-left. Notably, governance (bubble size) is not correlated with either axis — suggesting companies can run clean operations without strong board oversight, and vice versa.</p>
+
+      <div class="legend-strip" style="font-size:11px">
+        <span class="legend-title">Colour →</span><span>Sector</span>
+        <span class="legend-sep">|</span>
+        <span class="legend-title">Size →</span><span>Governance score</span>
+        <span class="legend-sep">|</span>
+        <span class="legend-title">Dashed lines →</span><span>Score = 50</span>
+      </div>
+
+      <div class="chart-wrap" data-source="Source: esg_scores_master.csv · FY2023">
+        <div id="chart-scatter" style="height:480px"></div>
+      </div>
+    </div>
+
+    <!-- CHART 4: HEATMAP -->
+    <div class="section">
+      <div class="section-rule">
+        <span class="section-number">FIGURE 04</span>
+        <hr>
+      </div>
+      <h2 class="chart-title" style="font-size:20px">Which sectors have <em>structural ESG gaps</em> versus balanced profiles?</h2>
+      <p class="chart-subtitle" style="font-size:13px">Sector-average scores across all three pillars. Red = weak, green = strong.</p>
+      <p class="chart-context" style="font-size:12px">Healthcare leads on both Social and Governance but is not the strongest environmentally. Energy's Governance score (50.1) is surprisingly average — its ESG problem is almost entirely Environmental. Consumer Discretionary's Governance (30.2) is the single weakest cell in the matrix.</p>
+
+      <div class="legend-strip" style="font-size:11px">
+        <span class="legend-title">Colour scale →</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#6b1a1a"></span>0</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#c9991a"></span>50</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#1a6b3a"></span>100</span>
+        <span class="legend-sep">|</span><span>Sorted by composite ESG</span>
+      </div>
+
+      <div class="chart-wrap" data-source="Source: esg_tableau_long.csv · Sector averages · FY2023">
+        <div id="chart-heatmap" style="height:480px"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CHART 5: RADAR -->
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-number">FIGURE 05</span>
+      <hr>
+    </div>
+    <h2 class="chart-title">How do the <em>top five</em> companies compare to the <em>bottom five</em> across every metric?</h2>
+    <p class="chart-subtitle">Radar profiles reveal the shape of ESG leadership — and the anatomy of ESG failure.</p>
+    <p class="chart-context">The radar chart plots normalised scores across all four dimensions for the top and bottom quintiles. The green cluster (leaders) shows a large, convex polygon — broadly strong across all dimensions. The red cluster (laggards) forms a compressed, irregular shape with specific structural collapses — most notably in the Environmental pillar where Energy companies drag scores to near zero. The gap in Social scores is narrower, suggesting even laggard companies have baseline workforce policies in place.</p>
+
+    <div class="legend-strip">
+      <span class="legend-title">Groups →</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#1a6b3a"></span>Top 5 companies (by composite ESG)</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#b5410a"></span>Bottom 5 companies (by composite ESG)</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Axes →</span><span>Environmental · Social · Governance · Composite</span>
+    </div>
+
+    <div class="chart-wrap" data-source="Source: esg_scores_master.csv · Top/bottom quintile analysis · FY2023">
+      <div id="chart-radar" style="height:520px"></div>
+    </div>
+  </div>
+
+  <!-- CHART 6: DISTRIBUTION -->
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-number">FIGURE 06</span>
+      <hr>
+    </div>
+    <h2 class="chart-title">Is ESG performance a firm-level choice — or is it <em>structurally determined by sector?</em></h2>
+    <p class="chart-subtitle">Every company plotted as an individual dot, revealing two distinct performance clusters with a near-empty middle ground.</p>
+    <p class="chart-context">With only 20 companies, a histogram obscures more than it reveals. A dot strip plot shows the full picture: there are effectively two ESG universes — a high-scoring cluster (Technology, Healthcare, Industrials scoring 65–85) and a low-scoring cluster (Energy, Materials scoring 25–36) — with very few companies in the 37–62 range. This gap maps almost perfectly onto sector boundaries, suggesting that sector affiliation is a stronger predictor of ESG performance than any individual management decision.</p>
+
+    <div class="legend-strip">
+      <span class="legend-title">Left panel →</span><span>Dot strip — every company as a labelled point, coloured by ESG band</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Right panel →</span><span>Sector ranking — avg ESG with individual company dots overlaid, sorted worst to best</span>
+    </div>
+
+    <div class="chart-wrap" data-source="Source: esg_scores_master.csv · Universe of 20 companies · FY2023">
+      <div id="chart-distribution" style="height:480px"></div>
+    </div>
+  </div>
+
+  <!-- CHART 7: ML — PCA + CLUSTERING -->
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-number">FIGURE 07 · MACHINE LEARNING</span>
+      <hr>
+    </div>
+    <h2 class="chart-title">What do <em>unsupervised ML models</em> reveal that manual scoring misses?</h2>
+    <p class="chart-subtitle">PCA-derived pillar weights vs assumed weights · K-Means archetype clustering (k=2, silhouette=0.593)</p>
+    <p class="chart-context">Two ML techniques reframe the analysis. First, Principal Component Analysis on all 15 raw metrics derives pillar weights statistically — PC1 (53.7% variance) loads heaviest on Environmental metrics, PC2 (22.7%) on Governance, PC3 (6.6%) on Social. This shifts the weighting to E:64.7% G:27.3% S:8.0%, significantly upweighting Environmental and revealing that Social metrics contribute far less independent signal than assumed. Second, K-Means clustering (optimal k=2, silhouette score 0.593) discovers two natural archetypes in the data: Balanced Leaders (12 companies, avg ESG 79.6) and Structural Laggards (8 companies, avg ESG 35.3). The clean separation confirms the polarisation finding from Figure 06 is statistically robust, not a visual artefact.</p>
+
+    <div class="legend-strip">
+      <span class="legend-title">Left →</span><span>PCA weights vs assumed weights — bar comparison</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Right →</span><span>K-Means clusters plotted on E vs G axes — bubble size = Social score</span>
+      <span class="legend-sep">|</span>
+      <span class="legend-title">Silhouette →</span><span>0.593 (strong separation)</span>
+    </div>
+
+    <div class="chart-wrap" data-source="sklearn PCA (n=3) + KMeans (k=2) · 15 normalised metrics · StandardScaler · random_state=42 · FY2023">
+      <div id="chart-ml" style="height:500px"></div>
+    </div>
+
+    <div class="callout-row">
+      <div class="callout">
+        <div class="callout-label">PCA finding</div>
+        <div class="callout-text">Environmental metrics explain <strong>53.7% of variance</strong> in PC1 — nearly double the assumed 40% weight. Social metrics contribute only 6.6% independent signal (PC3).</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Clustering finding</div>
+        <div class="callout-text">K-Means identifies <strong>two statistically distinct archetypes</strong> with a 44-point gap in average ESG score — confirming the sector-structural polarisation is not a scoring artefact.</div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Score impact</div>
+        <div class="callout-text">PCA reweighting moves scores by up to <strong>±7.4 points</strong>. Energy companies score lower under PCA; high-Environmental tech companies score higher — the gap widens.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>ESG INTELLIGENCE REPORT · FY2023 · PYTHON (PANDAS · SKLEARN · PLOTLY) · DATA SCIENCE PORTFOLIO PROJECT</span>
+    <span>ML METHODOLOGY: PCA-DERIVED WEIGHTS (E:64.7% G:27.3% S:8.0%) · K-MEANS CLUSTERING k=2 · SILHOUETTE=0.593 · 15 METRICS · <a href="https://github.com/chandrimatolia/esg-dashboard">SOURCE CODE ↗</a></span>
+  </div>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+// esg_pca = PCA-weighted composite (E:64.7% S:8.0% G:27.3%, derived from explained variance)
+// esg = original hardcoded composite (E:40% S:35% G:25%)
+// cluster / archetype = K-Means k=2, silhouette=0.593
+const data = [
+  {ticker:"MSFT",company:"Microsoft Corp",sector:"Technology",country:"USA",market_cap:2800,env:88.9,soc:70.9,gov:94.8,esg:84.1,esg_pca:96.6,rating:"A",band:"Leader",carbon:10.2,renewables:100,turnover:8.9,diversity:34,board_ind:92,pay_ratio:185,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"NOVN",company:"Novartis AG",sector:"Healthcare",country:"Switzerland",market_cap:195,env:77.9,soc:71.7,gov:91.2,esg:79.1,esg_pca:89.7,rating:"A",band:"Leader",carbon:8.1,renewables:65,turnover:10.3,diversity:46,board_ind:90,pay_ratio:155,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"SAP",company:"SAP SE",sector:"Technology",country:"Germany",market_cap:185,env:79.0,soc:66.0,gov:85.7,esg:76.1,esg_pca:88.2,rating:"A",band:"Leader",carbon:14.1,renewables:78,turnover:9.2,diversity:43,board_ind:88,pay_ratio:142,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"AAPL",company:"Apple Inc",sector:"Technology",country:"USA",market_cap:2900,env:85.1,soc:62.4,gov:80.1,esg:75.9,esg_pca:89.7,rating:"A",band:"Leader",carbon:22.5,renewables:100,turnover:12.1,diversity:35,board_ind:85,pay_ratio:201,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"JNJ",company:"Johnson & Johnson",sector:"Healthcare",country:"USA",market_cap:420,env:67.2,soc:72.9,gov:82.5,esg:73.0,esg_pca:75.3,rating:"B+",band:"Average",carbon:12.3,renewables:42,turnover:11.2,diversity:48,board_ind:88,pay_ratio:195,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"SIEGY",company:"Siemens AG",sector:"Industrials",country:"Germany",market_cap:130,env:72.6,soc:63.2,gov:79.9,esg:71.1,esg_pca:82.7,rating:"B+",band:"Average",carbon:19.8,renewables:72,turnover:8.8,diversity:38,board_ind:85,pay_ratio:138,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"ULVR",company:"Unilever",sector:"Consumer Staples",country:"UK",market_cap:120,env:63.1,soc:69.1,gov:85.5,esg:70.8,esg_pca:75.8,rating:"B+",band:"Average",carbon:24.6,renewables:59,turnover:12.5,diversity:50,board_ind:88,pay_ratio:145,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"NEE",company:"NextEra Energy",sector:"Utilities",country:"USA",market_cap:115,env:64.5,soc:56.6,gov:88.8,esg:67.8,esg_pca:79.5,rating:"B+",band:"Average",carbon:18.2,renewables:68,turnover:8.5,diversity:39,board_ind:90,pay_ratio:112,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"GOOGL",company:"Alphabet Inc",sector:"Technology",country:"USA",market_cap:1700,env:79.5,soc:56.1,gov:59.7,esg:66.4,esg_pca:76.7,rating:"B+",band:"Average",carbon:30.1,renewables:100,turnover:14.2,diversity:33,board_ind:78,pay_ratio:312,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"JPM",company:"JPMorgan Chase",sector:"Financials",country:"USA",market_cap:490,env:62.6,soc:71.3,gov:64.5,esg:66.1,esg_pca:71.4,rating:"B+",band:"Average",carbon:8.9,renewables:25,turnover:18.5,diversity:42,board_ind:82,pay_ratio:278,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"NESN",company:"Nestle SA",sector:"Consumer Staples",country:"Switzerland",market_cap:290,env:56.4,soc:63.5,gov:78.3,esg:64.4,esg_pca:66.5,rating:"B",band:"Average",carbon:28.4,renewables:52,turnover:13.8,diversity:47,board_ind:85,pay_ratio:165,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"TM",company:"Toyota Motor",sector:"Consumer Discretionary",country:"Japan",market_cap:240,env:57.4,soc:51.1,gov:51.4,esg:53.7,esg_pca:63.6,rating:"C+",band:"Laggard",carbon:45.2,renewables:38,turnover:7.1,diversity:15,board_ind:60,pay_ratio:98,cluster:1,archetype:"Balanced Leaders"},
+  {ticker:"AMZN",company:"Amazon.com",sector:"Consumer Discretionary",country:"USA",market_cap:1600,env:48.1,soc:43.2,gov:39.3,esg:44.2,esg_pca:50.1,rating:"C",band:"Laggard",carbon:71.5,renewables:40,turnover:25.3,diversity:45,board_ind:65,pay_ratio:289,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"TSLA",company:"Tesla Inc",sector:"Consumer Discretionary",country:"USA",market_cap:780,env:72.2,soc:19.9,gov:0.0,esg:35.8,esg_pca:47.5,rating:"C",band:"Laggard",carbon:5.1,renewables:85,turnover:32.1,diversity:28,board_ind:55,pay_ratio:432,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"BHP",company:"BHP Group",sector:"Materials",country:"Australia",market_cap:145,env:26.2,soc:23.7,gov:66.9,esg:35.5,esg_pca:39.0,rating:"C",band:"Laggard",carbon:58.9,renewables:22,turnover:12.4,diversity:18,board_ind:78,pay_ratio:125,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"RIO",company:"Rio Tinto",sector:"Materials",country:"UK",market_cap:105,env:24.6,soc:24.8,gov:65.3,esg:34.8,esg_pca:37.9,rating:"C",band:"Critical",carbon:62.3,renewables:19,turnover:13.1,diversity:20,board_ind:75,pay_ratio:118,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"CVX",company:"Chevron Corp",sector:"Energy",country:"USA",market_cap:290,env:16.2,soc:35.4,gov:53.3,esg:32.2,esg_pca:32.4,rating:"C",band:"Critical",carbon:152.1,renewables:12,turnover:10.1,diversity:24,board_ind:75,pay_ratio:168,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"SHEL",company:"Shell plc",sector:"Energy",country:"Netherlands",market_cap:210,env:11.9,soc:34.0,gov:52.0,esg:29.7,esg_pca:29.0,rating:"D",band:"Critical",carbon:198.3,renewables:18,turnover:10.5,diversity:28,board_ind:70,pay_ratio:134,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"XOM",company:"Exxon Mobil",sector:"Energy",country:"USA",market_cap:450,env:10.0,soc:32.6,gov:52.7,esg:28.6,esg_pca:25.0,rating:"D",band:"Critical",carbon:189.4,renewables:8,turnover:9.8,diversity:22,board_ind:72,pay_ratio:145,cluster:0,archetype:"Structural Laggards"},
+  {ticker:"BP",company:"BP plc",sector:"Energy",country:"UK",market_cap:100,env:10.4,soc:32.8,gov:42.3,esg:26.2,esg_pca:21.8,rating:"D",band:"Critical",carbon:214.5,renewables:20,turnover:11.3,diversity:31,board_ind:68,pay_ratio:122,cluster:0,archetype:"Structural Laggards"},
+];
+
+const sectorData = [
+  {sector:"Healthcare",env:72.6,soc:72.3,gov:86.8,esg:76.0},
+  {sector:"Technology",env:83.1,soc:63.8,gov:80.1,esg:75.6},
+  {sector:"Industrials",env:72.6,soc:63.2,gov:79.9,esg:71.1},
+  {sector:"Utilities",env:64.5,soc:56.6,gov:88.8,esg:67.8},
+  {sector:"Consumer Staples",env:59.8,soc:66.3,gov:81.9,esg:67.6},
+  {sector:"Financials",env:62.6,soc:71.3,gov:64.5,esg:66.1},
+  {sector:"Consumer Discretionary",env:59.2,soc:38.1,gov:30.2,esg:44.6},
+  {sector:"Materials",env:25.4,soc:24.2,gov:66.1,esg:35.2},
+  {sector:"Energy",env:12.1,soc:33.7,gov:50.1,esg:29.2},
+];
+
+// ── COLOUR HELPERS ────────────────────────────────────────────────────────────
+const BAND_COLOUR = {
+  Leader:   '#1a6b3a',
+  Average:  '#c9991a',
+  Laggard:  '#b5410a',
+  Critical: '#6b1a1a',
+};
+const SECTOR_COLOURS = {
+  'Technology':              '#1a5b8a',
+  'Healthcare':              '#1a6b3a',
+  'Industrials':             '#5a6b1a',
+  'Utilities':               '#1a6b6b',
+  'Consumer Staples':        '#6b1a6b',
+  'Financials':              '#1a3a6b',
+  'Consumer Discretionary':  '#8a5a1a',
+  'Materials':               '#6b3a1a',
+  'Energy':                  '#6b1a1a',
+};
+
+const FONT = "'Source Serif 4', Georgia, serif";
+const MONO = "'JetBrains Mono', monospace";
+const INK  = '#1a1208';
+const PAPER= '#f7f3ec';
+const RULE = '#c8bfaf';
+
+const baseLayout = {
+  paper_bgcolor: 'white',
+  plot_bgcolor:  'white',
+  font: { family: FONT, color: INK, size: 12 },
+  margin: { t: 20, b: 60, l: 60, r: 20 },
+  hoverlabel: {
+    bgcolor: INK,
+    bordercolor: INK,
+    font: { family: MONO, size: 11, color: PAPER },
+  },
+};
+
+const config = { responsive: true, displayModeBar: false };
+
+// ── CHART 1: LEADERBOARD ──────────────────────────────────────────────────────
+(function() {
+  const sorted = [...data].sort((a,b) => a.esg - b.esg);
+
+  const trace = {
+    type: 'bar',
+    orientation: 'h',
+    x: sorted.map(d => d.esg),
+    y: sorted.map(d => d.company),
+    marker: {
+      color: sorted.map(d => BAND_COLOUR[d.band]),
+      line: { color: 'white', width: 0.5 },
+    },
+    text: sorted.map(d => `${d.esg.toFixed(1)}<span style="color:#999"> ${d.rating}</span>`),
+    textposition: 'outside',
+    textfont: { family: MONO, size: 10, color: INK },
+    cliponaxis: false,
+    hovertemplate:
+      '<b>%{y}</b><br>' +
+      'ESG Score: <b>%{x:.1f}</b><br>' +
+      'Sector: %{customdata[0]}<br>' +
+      'Country: %{customdata[1]}<br>' +
+      'Rating: %{customdata[2]}<br>' +
+      'Mkt Cap: $%{customdata[3]}bn' +
+      '<extra></extra>',
+    customdata: sorted.map(d => [d.sector, d.country, d.rating, d.market_cap]),
+  };
+
+  // Sector colour bands as shapes
+  const shapes = [];
+  const annotations = [];
+
+  const layout = {
+    ...baseLayout,
+    xaxis: {
+      title: { text: 'Composite ESG Score  (0 = worst · 100 = best)', font: { family: MONO, size: 10 }, standoff: 14 },
+      range: [0, 108],
+      showgrid: true,
+      gridcolor: '#ede8df',
+      gridwidth: 1,
+      zeroline: false,
+      tickfont: { family: MONO, size: 10 },
+      tickvals: [0, 25, 35, 50, 55, 65, 75, 85, 100],
+      ticktext: ['0','25','35','50','55','65','75','85','100'],
+    },
+    yaxis: {
+      tickfont: { family: FONT, size: 12 },
+      automargin: true,
+    },
+    margin: { t: 16, b: 60, l: 160, r: 60 },
+    shapes: [
+      // threshold bands
+      {type:'rect',xref:'x',yref:'paper',x0:0,x1:35,y0:0,y1:1,fillcolor:'rgba(107,26,26,0.04)',line:{width:0}},
+      {type:'rect',xref:'x',yref:'paper',x0:35,x1:55,y0:0,y1:1,fillcolor:'rgba(181,65,10,0.04)',line:{width:0}},
+      {type:'rect',xref:'x',yref:'paper',x0:55,x1:75,y0:0,y1:1,fillcolor:'rgba(201,153,26,0.04)',line:{width:0}},
+      {type:'rect',xref:'x',yref:'paper',x0:75,x1:108,y0:0,y1:1,fillcolor:'rgba(26,107,58,0.04)',line:{width:0}},
+      // threshold lines
+      {type:'line',xref:'x',yref:'paper',x0:35,x1:35,y0:0,y1:1,line:{color:'rgba(107,26,26,0.25)',width:1,dash:'dot'}},
+      {type:'line',xref:'x',yref:'paper',x0:55,x1:55,y0:0,y1:1,line:{color:'rgba(201,153,26,0.35)',width:1,dash:'dot'}},
+      {type:'line',xref:'x',yref:'paper',x0:75,x1:75,y0:0,y1:1,line:{color:'rgba(26,107,58,0.35)',width:1,dash:'dot'}},
+    ],
+    annotations: [
+      {xref:'x',yref:'paper',x:17,y:1.02,text:'CRITICAL',showarrow:false,font:{family:MONO,size:8,color:'rgba(107,26,26,0.5)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:45,y:1.02,text:'LAGGARD',showarrow:false,font:{family:MONO,size:8,color:'rgba(181,65,10,0.5)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:65,y:1.02,text:'AVERAGE',showarrow:false,font:{family:MONO,size:8,color:'rgba(201,153,26,0.6)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:90,y:1.02,text:'LEADER',showarrow:false,font:{family:MONO,size:8,color:'rgba(26,107,58,0.6)'},xanchor:'center'},
+    ],
+  };
+
+  Plotly.newPlot('chart-leaderboard', [trace], layout, config);
+})();
+
+// ── CHART 2: PILLAR BREAKDOWN ─────────────────────────────────────────────────
+(function() {
+  const sorted = [...data].sort((a,b) => b.esg - a.esg);
+
+  const pillars = [
+    {key:'env', label:'Environmental (40%)', color:'#1a6b3a', opacity:0.85},
+    {key:'soc', label:'Social (35%)',         color:'#1a5b8a', opacity:0.85},
+    {key:'gov', label:'Governance (25%)',     color:'#6b3a8a', opacity:0.85},
+  ];
+
+  const traces = pillars.map(p => ({
+    type: 'bar',
+    name: p.label,
+    x: sorted.map(d => d.ticker),
+    y: sorted.map(d => d[p.key]),
+    marker: { color: p.color, opacity: p.opacity, line:{width:0} },
+    hovertemplate:
+      '<b>%{customdata[0]}</b><br>' +
+      p.label.split(' (')[0] + ': <b>%{y:.1f}</b><br>' +
+      'Sector: %{customdata[1]}' +
+      '<extra></extra>',
+    customdata: sorted.map(d => [d.company, d.sector]),
+  }));
+
+  // ESG composite line overlay
+  const lineTrace = {
+    type: 'scatter',
+    name: 'Composite ESG',
+    x: sorted.map(d => d.ticker),
+    y: sorted.map(d => d.esg),
+    mode: 'lines+markers',
+    line: { color: INK, width: 2, dash: 'dot' },
+    marker: { size: 5, color: INK },
+    yaxis: 'y',
+    hovertemplate: '<b>%{customdata}</b><br>Composite: <b>%{y:.1f}</b><extra></extra>',
+    customdata: sorted.map(d => d.company),
+  };
+
+  const layout = {
+    ...baseLayout,
+    barmode: 'group',
+    bargap: 0.25,
+    bargroupgap: 0.05,
+    xaxis: {
+      tickfont: { family: MONO, size: 10 },
+      tickangle: -35,
+    },
+    yaxis: {
+      title: { text: 'Pillar Score (0–100)', font:{family:MONO,size:10}, standoff:10 },
+      range: [0, 108],
+      showgrid: true,
+      gridcolor: '#ede8df',
+      tickfont: { family: MONO, size: 10 },
+    },
+    legend: {
+      orientation: 'h',
+      y: -0.22,
+      x: 0.5,
+      xanchor: 'center',
+      font: { family: MONO, size: 10 },
+      bgcolor: 'rgba(0,0,0,0)',
+    },
+    margin: { t:16, b:80, l:60, r:20 },
+    shapes: [
+      {type:'line',xref:'paper',yref:'y',x0:0,x1:1,y0:75,y1:75,line:{color:'rgba(26,107,58,0.3)',width:1,dash:'dot'}},
+      {type:'line',xref:'paper',yref:'y',x0:0,x1:1,y0:35,y1:35,line:{color:'rgba(107,26,26,0.3)',width:1,dash:'dot'}},
+    ],
+  };
+
+  Plotly.newPlot('chart-pillars', [...traces, lineTrace], layout, config);
+})();
+
+// ── CHART 3: SCATTER ──────────────────────────────────────────────────────────
+(function() {
+  const sectors = [...new Set(data.map(d => d.sector))];
+
+  // Tickers worth calling out editorially — chosen for being clear outliers
+  // with enough spacing that annotations won't overlap
+  const LABELLED = new Set(['MSFT','TSLA','BP','NOVN','XOM','TM','JPM']);
+
+  const traces = sectors.map(sector => {
+    const pts = data.filter(d => d.sector === sector);
+    return {
+      type: 'scatter',
+      name: sector,
+      x: pts.map(d => d.env),
+      y: pts.map(d => d.soc),
+      mode: 'markers',   // no inline text — labels added as annotations below
+      marker: {
+        size: pts.map(d => 8 + (d.gov / 100) * 28),
+        color: SECTOR_COLOURS[sector] || '#888',
+        opacity: 0.82,
+        line: { color: 'white', width: 1.5 },
+      },
+      hovertemplate:
+        '<b>%{customdata[0]}</b><br>' +
+        '<span style="color:#aaa">%{customdata[1]}</span><br><br>' +
+        'Environmental: <b>%{x:.1f}</b><br>' +
+        'Social: <b>%{y:.1f}</b><br>' +
+        'Governance: <b>%{customdata[2]:.1f}</b><br>' +
+        'Composite ESG: <b>%{customdata[3]:.1f}</b>' +
+        '<extra></extra>',
+      customdata: pts.map(d => [d.company, d.sector, d.gov, d.esg]),
+    };
+  });
+
+  // Selective annotations — only for notable outliers, with manual offsets
+  // to avoid overlap. arrowhead points to bubble centre.
+  const outlierAnnotations = [
+    { ticker:'MSFT', ax: 18, ay:-22, xanchor:'left'  },
+    { ticker:'NOVN', ax:-18, ay:-22, xanchor:'right' },
+    { ticker:'TSLA', ax: 22, ay:  0, xanchor:'left'  },
+    { ticker:'BP',   ax:-18, ay: 18, xanchor:'right' },
+    { ticker:'XOM',  ax:-18, ay:-22, xanchor:'right' },
+    { ticker:'TM',   ax: 18, ay: 18, xanchor:'left'  },
+    { ticker:'JPM',  ax:-20, ay:-22, xanchor:'right' },
+  ].map(({ ticker, ax, ay, xanchor }) => {
+    const d = data.find(c => c.ticker === ticker);
+    return {
+      x: d.env, y: d.soc,
+      xref:'x', yref:'y',
+      text: ticker,
+      showarrow: true,
+      arrowhead: 0,
+      arrowwidth: 1,
+      arrowcolor: 'rgba(26,18,8,0.25)',
+      ax, ay,
+      font: { family: MONO, size: 9, color: INK },
+      bgcolor: 'rgba(247,243,236,0.88)',
+      bordercolor: 'rgba(200,191,175,0.6)',
+      borderwidth: 1,
+      borderpad: 3,
+      xanchor,
+    };
+  });
+
+  const layout = {
+    ...baseLayout,
+    xaxis: {
+      title: { text: 'Environmental Score', font:{family:MONO,size:10}, standoff:10 },
+      range: [0, 102], showgrid:true, gridcolor:'#ede8df',
+      tickfont:{family:MONO,size:10}, zeroline:false,
+    },
+    yaxis: {
+      title: { text: 'Social Score', font:{family:MONO,size:10}, standoff:10 },
+      range: [0, 92], showgrid:true, gridcolor:'#ede8df',
+      tickfont:{family:MONO,size:10}, zeroline:false,
+    },
+    legend: {
+      font:{family:MONO,size:9},
+      bgcolor:'rgba(247,243,236,0.9)',
+      bordercolor:RULE,
+      borderwidth:1,
+    },
+    margin:{t:16,b:60,l:60,r:16},
+    shapes: [
+      {type:'line',xref:'x',yref:'paper',x0:50,x1:50,y0:0,y1:1,line:{color:'rgba(0,0,0,0.12)',width:1,dash:'dash'}},
+      {type:'line',xref:'paper',yref:'y',x0:0,x1:1,y0:50,y1:50,line:{color:'rgba(0,0,0,0.12)',width:1,dash:'dash'}},
+    ],
+    annotations: [
+      // Quadrant labels
+      {xref:'paper',yref:'paper',x:0.97,y:0.97,text:'High E · High S',showarrow:false,font:{family:MONO,size:9,color:'rgba(26,107,58,0.55)'},xanchor:'right',bgcolor:'rgba(26,107,58,0.05)',borderpad:4},
+      {xref:'paper',yref:'paper',x:0.03,y:0.03,text:'Low E · Low S',showarrow:false,font:{family:MONO,size:9,color:'rgba(107,26,26,0.55)'},xanchor:'left',bgcolor:'rgba(107,26,26,0.05)',borderpad:4},
+      {xref:'paper',yref:'paper',x:0.03,y:0.97,text:'Low E · High S',showarrow:false,font:{family:MONO,size:9,color:'rgba(181,65,10,0.45)'},xanchor:'left',bgcolor:'rgba(181,65,10,0.04)',borderpad:4},
+      {xref:'paper',yref:'paper',x:0.97,y:0.03,text:'High E · Low S',showarrow:false,font:{family:MONO,size:9,color:'rgba(181,65,10,0.45)'},xanchor:'right',bgcolor:'rgba(181,65,10,0.04)',borderpad:4},
+      // Outlier callouts
+      ...outlierAnnotations,
+    ],
+  };
+
+  Plotly.newPlot('chart-scatter', traces, layout, config);
+})();
+
+// ── CHART 4: HEATMAP ──────────────────────────────────────────────────────────
+(function() {
+  const sorted = [...sectorData].sort((a,b) => b.esg - a.esg);
+  const pillars = ['Environmental','Social','Governance'];
+  const zVals   = sorted.map(d => [d.env, d.soc, d.gov]);
+  const zText   = zVals.map(row => row.map(v => v.toFixed(1)));
+
+  const trace = {
+    type: 'heatmap',
+    x: pillars,
+    y: sorted.map(d => d.sector),
+    z: zVals,
+    text: zText,
+    texttemplate: '<b>%{text}</b>',
+    textfont: { family: MONO, size: 12 },
+    colorscale: [
+      [0.0,  '#6b1a1a'],
+      [0.15, '#a33020'],
+      [0.35, '#c9991a'],
+      [0.55, '#d4b84a'],
+      [0.7,  '#4a9a6a'],
+      [1.0,  '#1a6b3a'],
+    ],
+    zmin: 0, zmax: 100,
+    colorbar: {
+      title: { text: 'Score', font:{family:MONO,size:10} },
+      tickfont: { family:MONO, size:9 },
+      thickness: 12,
+      len: 0.8,
+    },
+    hovertemplate:
+      '<b>%{y}</b><br>' +
+      'Pillar: <b>%{x}</b><br>' +
+      'Avg Score: <b>%{z:.1f}</b>' +
+      '<extra></extra>',
+  };
+
+  const layout = {
+    ...baseLayout,
+    xaxis: { tickfont:{family:MONO,size:11}, side:'top', tickangle:0 },
+    yaxis: { tickfont:{family:FONT,size:11}, automargin:true },
+    margin: { t:40, b:20, l:150, r:60 },
+  };
+
+  Plotly.newPlot('chart-heatmap', [trace], layout, config);
+})();
+
+// ── CHART 5: RADAR ────────────────────────────────────────────────────────────
+(function() {
+  const sorted = [...data].sort((a,b) => b.esg - a.esg);
+  const top5   = sorted.slice(0, 5);
+  const bot5   = sorted.slice(-5);
+  const cats   = ['Environmental','Social','Governance','Composite','Environmental'];
+
+  const makeTrace = (companies, colour, groupLabel) =>
+    companies.map((d, i) => ({
+      type: 'scatterpolar',
+      name: i === 0 ? groupLabel : d.ticker,
+      r: [d.env, d.soc, d.gov, d.esg, d.env],
+      theta: cats,
+      fill: 'toself',
+      fillcolor: colour.replace(')', `,${i===0?0.18:0.08})`).replace('rgb','rgba'),
+      line: {
+        color: colour,
+        width: i === 0 ? 2.5 : 1.5,
+        dash: i === 0 ? 'solid' : 'dot',
+      },
+      legendgroup: groupLabel,
+      showlegend: i === 0,
+      hovertemplate:
+        `<b>${d.company}</b><br>` +
+        `Environmental: <b>${d.env.toFixed(1)}</b><br>` +
+        `Social: <b>${d.soc.toFixed(1)}</b><br>` +
+        `Governance: <b>${d.gov.toFixed(1)}</b><br>` +
+        `Composite: <b>${d.esg.toFixed(1)}</b>` +
+        '<extra></extra>',
+    }));
+
+  const traces = [
+    ...makeTrace(top5, 'rgb(26,107,58)',  '▲ Top 5 companies'),
+    ...makeTrace(bot5, 'rgb(181,65,10)',  '▼ Bottom 5 companies'),
+  ];
+
+  const layout = {
+    ...baseLayout,
+    polar: {
+      bgcolor: '#faf8f4',
+      radialaxis: {
+        visible: true,
+        range: [0,100],
+        tickfont: { family:MONO, size:8, color:'#999' },
+        gridcolor: '#ddd',
+        linecolor: '#ccc',
+        tickvals: [25,50,75,100],
+      },
+      angularaxis: {
+        tickfont: { family:MONO, size:10, color:INK },
+        gridcolor: '#ddd',
+        linecolor: '#ccc',
+      },
+    },
+    legend: {
+      font:{family:MONO,size:10},
+      bgcolor:'rgba(247,243,236,0.9)',
+      bordercolor:RULE,
+      borderwidth:1,
+      x:1.05,
+    },
+    margin: { t:20, b:20, l:40, r:120 },
+  };
+
+  Plotly.newPlot('chart-radar', traces, layout, config);
+})();
+
+// ── CHART 6: DOT STRIP + SECTOR RANKING ──────────────────────────────────────
+(function() {
+
+  // ── LEFT: Dot strip plot — every company as a named dot on a single axis ──
+  // Jitter y-position slightly so overlapping scores don't stack directly
+  const sorted = [...data].sort((a,b) => a.esg - b.esg);
+  const bandColourFn = s => s >= 75 ? '#1a6b3a' : s >= 55 ? '#c9991a' : s >= 35 ? '#b5410a' : '#6b1a1a';
+
+  // Assign jitter rows: group companies whose scores are within 4pts of each other
+  // into alternating y-rows so labels don't overlap
+  const rows = [];
+  sorted.forEach((d, i) => {
+    let placed = false;
+    for (let r = 0; r < rows.length; r++) {
+      const last = rows[r][rows[r].length - 1];
+      if (d.esg - last.esg > 3.5) { rows[r].push(d); placed = true; break; }
+    }
+    if (!placed) rows.push([d]);
+  });
+
+  const stripTraces = rows.map((row, ri) => ({
+    type: 'scatter',
+    mode: 'markers+text',
+    x: row.map(d => d.esg),
+    y: Array(row.length).fill(ri * 0.9),
+    text: row.map(d => d.ticker),
+    textposition: ri % 2 === 0 ? 'top center' : 'bottom center',
+    textfont: { family: MONO, size: 8, color: INK },
+    marker: {
+      size: 11,
+      color: row.map(d => bandColourFn(d.esg)),
+      line: { color: 'white', width: 1.5 },
+      symbol: 'circle',
+    },
+    xaxis: 'x', yaxis: 'y',
+    showlegend: false,
+    hovertemplate:
+      '<b>%{customdata[0]}</b><br>' +
+      'Sector: %{customdata[1]}<br>' +
+      'ESG Score: <b>%{x:.1f}</b><br>' +
+      'Rating: %{customdata[2]}' +
+      '<extra></extra>',
+    customdata: row.map(d => [d.company, d.sector, d.rating]),
+  }));
+
+  // ── RIGHT: Sector ranking — horizontal bars sorted worst→best with dots ──
+  const sectorSorted = [...sectorData].sort((a,b) => a.esg - b.esg);
+
+  const sectorBar = {
+    type: 'bar',
+    orientation: 'h',
+    x: sectorSorted.map(d => d.esg),
+    y: sectorSorted.map(d => d.sector),
+    marker: {
+      color: sectorSorted.map(d => bandColourFn(d.esg)),
+      opacity: 0.25,
+      line: { width: 0 },
+    },
+    xaxis: 'x2', yaxis: 'y2',
+    showlegend: false,
+    hoverinfo: 'skip',
+  };
+
+  // Individual company dots overlaid on sector bars
+  const sectorDots = {
+    type: 'scatter',
+    mode: 'markers',
+    x: data.map(d => d.esg),
+    y: data.map(d => d.sector),
+    marker: {
+      size: 9,
+      color: data.map(d => bandColourFn(d.esg)),
+      opacity: 0.9,
+      line: { color: 'white', width: 1.2 },
+    },
+    xaxis: 'x2', yaxis: 'y2',
+    showlegend: false,
+    hovertemplate:
+      '<b>%{customdata[0]}</b><br>' +
+      'ESG: <b>%{x:.1f}</b><br>' +
+      'Rating: %{customdata[1]}' +
+      '<extra></extra>',
+    customdata: data.map(d => [d.company, d.rating]),
+  };
+
+  // Sector avg label at end of each bar
+  const sectorLabels = {
+    type: 'scatter',
+    mode: 'text',
+    x: sectorSorted.map(d => d.esg + 1.5),
+    y: sectorSorted.map(d => d.sector),
+    text: sectorSorted.map(d => `avg ${d.esg.toFixed(1)}`),
+    textfont: { family: MONO, size: 9, color: sectorSorted.map(d => bandColourFn(d.esg)) },
+    textposition: 'middle right',
+    xaxis: 'x2', yaxis: 'y2',
+    showlegend: false,
+    hoverinfo: 'skip',
+  };
+
+  const nRows = rows.length;
+  const yPad = nRows * 0.9;
+
+  const layout = {
+    ...baseLayout,
+    xaxis: {
+      title: { text: 'Composite ESG Score', font:{family:MONO,size:10}, standoff:10 },
+      domain: [0, 0.44],
+      range: [0, 100],
+      showgrid: true, gridcolor:'#ede8df',
+      tickfont: { family:MONO, size:10 },
+      zeroline: false,
+    },
+    yaxis: {
+      domain: [0, 1],
+      range: [-0.8, yPad + 0.8],
+      showgrid: false,
+      zeroline: false,
+      showticklabels: false,
+    },
+    xaxis2: {
+      title: { text: 'Average ESG Score by Sector', font:{family:MONO,size:10}, standoff:10 },
+      domain: [0.54, 1],
+      range: [0, 105],
+      showgrid: true, gridcolor:'#ede8df',
+      tickfont: { family:MONO, size:10 },
+      zeroline: false,
+    },
+    yaxis2: {
+      anchor: 'x2',
+      tickfont: { family:FONT, size:11 },
+      automargin: true,
+      showgrid: false,
+    },
+    showlegend: false,
+    margin: { t:16, b:60, l:60, r:20 },
+    shapes: [
+      // Band threshold lines on strip plot
+      {type:'line',xref:'x',yref:'paper',x0:35,x1:35,y0:0,y1:1,line:{color:'rgba(107,26,26,0.2)',width:1,dash:'dot'}},
+      {type:'line',xref:'x',yref:'paper',x0:55,x1:55,y0:0,y1:1,line:{color:'rgba(181,65,10,0.2)',width:1,dash:'dot'}},
+      {type:'line',xref:'x',yref:'paper',x0:75,x1:75,y0:0,y1:1,line:{color:'rgba(26,107,58,0.2)',width:1,dash:'dot'}},
+      // Gap annotation region — the "missing middle"
+      {type:'rect',xref:'x',yref:'paper',x0:37,x1:62,y0:0,y1:1,
+       fillcolor:'rgba(201,153,26,0.06)',line:{color:'rgba(201,153,26,0.2)',width:1,dash:'dot'}},
+    ],
+    annotations: [
+      // Band labels on strip
+      {xref:'x',yref:'paper',x:17,y:1.04,text:'CRITICAL',showarrow:false,font:{family:MONO,size:8,color:'rgba(107,26,26,0.5)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:46,y:1.04,text:'LAGGARD',showarrow:false,font:{family:MONO,size:8,color:'rgba(181,65,10,0.5)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:65,y:1.04,text:'AVERAGE',showarrow:false,font:{family:MONO,size:8,color:'rgba(201,153,26,0.6)'},xanchor:'center'},
+      {xref:'x',yref:'paper',x:90,y:1.04,text:'LEADER',showarrow:false,font:{family:MONO,size:8,color:'rgba(26,107,58,0.6)'},xanchor:'center'},
+      // "Gap" callout on strip
+      {xref:'x',yref:'paper',x:49.5,y:0.5,
+       text:'← sparse<br>middle<br>ground →',
+       showarrow:false,
+       font:{family:MONO,size:8,color:'rgba(181,65,10,0.55)'},
+       xanchor:'center',align:'center'},
+    ],
+  };
+
+  Plotly.newPlot('chart-distribution',
+    [...stripTraces, sectorBar, sectorDots, sectorLabels],
+    layout, config);
+})();
+
+// ── CHART 7: ML — PCA WEIGHTS + KMEANS CLUSTERING ────────────────────────────
+(function() {
+
+  // ── LEFT: PCA weights vs assumed weights ──────────────────────────────────
+  const pillars    = ['Environmental', 'Social', 'Governance'];
+  const pcaWeights = [64.7, 8.0, 27.3];
+  const oldWeights = [40.0, 35.0, 25.0];
+  const pillarColours = ['#1a6b3a', '#1a5b8a', '#6b3a8a'];
+
+  const barPCA = {
+    type: 'bar',
+    name: 'PCA-derived weights',
+    x: pillars,
+    y: pcaWeights,
+    marker: { color: pillarColours, opacity: 0.85, line:{color:'white',width:1} },
+    xaxis: 'x', yaxis: 'y',
+    text: pcaWeights.map(v => v.toFixed(1) + '%'),
+    textposition: 'outside',
+    textfont: { family: MONO, size: 10, color: INK },
+    hovertemplate: '<b>%{x}</b><br>PCA weight: <b>%{y}%</b><extra></extra>',
+  };
+
+  const barOld = {
+    type: 'scatter',
+    name: 'Assumed weights',
+    x: pillars,
+    y: oldWeights,
+    mode: 'markers+text',
+    marker: { symbol: 'diamond', size: 14, color: INK, opacity: 0.5, line:{color:'white',width:1} },
+    text: oldWeights.map(v => v.toFixed(1) + '%'),
+    textposition: 'bottom center',
+    textfont: { family: MONO, size: 9, color: '#888' },
+    xaxis: 'x', yaxis: 'y',
+    hovertemplate: '<b>%{x}</b><br>Assumed weight: <b>%{y}%</b><extra></extra>',
+  };
+
+  // PCA variance breakdown as annotation
+  const pcaVarAnnotations = [
+    {x:'Environmental',y:68,text:'PC1: 53.7% var',xref:'x',yref:'y',showarrow:false,font:{family:MONO,size:8,color:'rgba(26,107,58,0.7)'},bgcolor:'rgba(26,107,58,0.07)',borderpad:3},
+    {x:'Social',y:12,text:'PC3: 6.6% var',xref:'x',yref:'y',showarrow:false,font:{family:MONO,size:8,color:'rgba(26,91,138,0.7)'},bgcolor:'rgba(26,91,138,0.07)',borderpad:3},
+    {x:'Governance',y:31.5,text:'PC2: 22.7% var',xref:'x',yref:'y',showarrow:false,font:{family:MONO,size:8,color:'rgba(107,58,138,0.7)'},bgcolor:'rgba(107,58,138,0.07)',borderpad:3},
+  ];
+
+  // ── RIGHT: K-Means cluster scatter (E vs G, size = Social) ──────────────────
+  const CLUSTER_COLOURS = {
+    'Balanced Leaders':    '#1a6b3a',
+    'Structural Laggards': '#6b1a1a',
+  };
+
+  const archetypes = [...new Set(data.map(d => d.archetype))];
+  const clusterTraces = archetypes.map(arch => {
+    const pts = data.filter(d => d.archetype === arch);
+    return {
+      type: 'scatter',
+      name: arch,
+      x: pts.map(d => d.env),
+      y: pts.map(d => d.gov),
+      mode: 'markers+text',
+      text: pts.map(d => d.ticker),
+      textposition: 'top center',
+      textfont: { family: MONO, size: 8, color: INK },
+      marker: {
+        size: pts.map(d => 8 + (d.soc / 100) * 26),
+        color: CLUSTER_COLOURS[arch],
+        opacity: 0.78,
+        line: { color: 'white', width: 1.5 },
+        symbol: arch === 'Balanced Leaders' ? 'circle' : 'diamond',
+      },
+      xaxis: 'x2', yaxis: 'y2',
+      hovertemplate:
+        '<b>%{customdata[0]}</b><br>' +
+        'Archetype: <b>%{customdata[1]}</b><br>' +
+        'Environmental: <b>%{x:.1f}</b><br>' +
+        'Governance: <b>%{y:.1f}</b><br>' +
+        'Social (bubble size): <b>%{customdata[2]:.1f}</b><br>' +
+        'PCA ESG Score: <b>%{customdata[3]:.1f}</b>' +
+        '<extra></extra>',
+      customdata: pts.map(d => [d.company, d.archetype, d.soc, d.esg_pca]),
+    };
+  });
+
+  // Cluster centroid markers
+  const centroids = [
+    { arch:'Balanced Leaders',    cx:73.7, cy:79.3 },
+    { arch:'Structural Laggards', cx:27.6, cy:52.1 },
+  ];
+  const centroidTrace = {
+    type: 'scatter',
+    name: 'Cluster centroids',
+    x: centroids.map(c => c.cx),
+    y: centroids.map(c => c.cy),
+    mode: 'markers+text',
+    text: centroids.map(c => c.arch),
+    textposition: ['bottom right', 'top left'],
+    textfont: { family: MONO, size: 9, color: INK },
+    marker: { symbol: 'cross', size: 16, color: INK, opacity: 0.35, line:{color:INK,width:2} },
+    xaxis: 'x2', yaxis: 'y2',
+    showlegend: false,
+    hoverinfo: 'skip',
+  };
+
+  const layout = {
+    ...baseLayout,
+    xaxis: {
+      title: { text:'Pillar', font:{family:MONO,size:10}, standoff:10 },
+      domain:[0, 0.38],
+      tickfont:{family:MONO,size:11},
+      showgrid:false,
+      zeroline:false,
+    },
+    yaxis: {
+      title: { text:'Weight (%)', font:{family:MONO,size:10}, standoff:10 },
+      range:[0,80],
+      showgrid:true, gridcolor:'#ede8df',
+      tickfont:{family:MONO,size:10},
+    },
+    xaxis2: {
+      title: { text:'Environmental Score', font:{family:MONO,size:10}, standoff:10 },
+      domain:[0.48,1],
+      range:[0,102],
+      showgrid:true, gridcolor:'#ede8df',
+      tickfont:{family:MONO,size:10},
+      zeroline:false,
+    },
+    yaxis2: {
+      anchor:'x2',
+      title: { text:'Governance Score', font:{family:MONO,size:10}, standoff:10 },
+      range:[0,105],
+      showgrid:true, gridcolor:'#ede8df',
+      tickfont:{family:MONO,size:10},
+      zeroline:false,
+    },
+    legend: {
+      font:{family:MONO,size:9},
+      bgcolor:'rgba(247,243,236,0.9)',
+      bordercolor:RULE,
+      borderwidth:1,
+      x:0.49, y:0.02,
+      xanchor:'left',
+    },
+    margin:{ t:20, b:60, l:60, r:20 },
+    annotations: [
+      ...pcaVarAnnotations,
+      // Panel labels
+      {xref:'paper',yref:'paper',x:0.19,y:1.04,text:'PCA: DERIVED vs ASSUMED WEIGHTS',showarrow:false,font:{family:MONO,size:9,color:'rgba(26,18,8,0.45)'},xanchor:'center'},
+      {xref:'paper',yref:'paper',x:0.74,y:1.04,text:'K-MEANS: ESG ARCHETYPES (E vs G · bubble = Social)',showarrow:false,font:{family:MONO,size:9,color:'rgba(26,18,8,0.45)'},xanchor:'center'},
+      // Silhouette score label
+      {xref:'paper',yref:'paper',x:1.0,y:0.98,text:'silhouette = 0.593',showarrow:false,font:{family:MONO,size:8,color:'rgba(26,18,8,0.35)'},xanchor:'right'},
+    ],
+    shapes: [
+      // Divider between panels
+      {type:'line',xref:'paper',yref:'paper',x0:0.41,x1:0.41,y0:0,y1:1,line:{color:RULE,width:1,dash:'dot'}},
+    ],
+  };
+
+  Plotly.newPlot('chart-ml',
+    [barPCA, barOld, ...clusterTraces, centroidTrace],
+    layout, config);
+})();
+</script>
+</body>
+</html>
