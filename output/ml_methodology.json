@@ -1,0 +1,61 @@
+{
+  "scoring_method": "PCA-derived weights + K-Means clustering",
+  "pca": {
+    "n_components": 3,
+    "total_variance_explained_pct": 83.0,
+    "derived_weights": {
+      "Environmental": "64.7%",
+      "Social": "8.0%",
+      "Governance": "27.3%"
+    },
+    "vs_hardcoded": {
+      "Environmental": "40.0%",
+      "Social": "35.0%",
+      "Governance": "25.0%"
+    },
+    "component_breakdown": {
+      "PC1": {
+        "explained_pct": 53.7,
+        "dominant_pillar": "Environmental"
+      },
+      "PC2": {
+        "explained_pct": 22.7,
+        "dominant_pillar": "Governance"
+      },
+      "PC3": {
+        "explained_pct": 6.6,
+        "dominant_pillar": "Social"
+      }
+    }
+  },
+  "clustering": {
+    "algorithm": "K-Means",
+    "optimal_k": 2,
+    "silhouette_scores": {
+      "2": 0.593,
+      "3": 0.593,
+      "4": 0.513,
+      "5": 0.398,
+      "6": 0.378
+    },
+    "best_silhouette": 0.593,
+    "archetypes": [
+      {
+        "cluster_id": 0,
+        "archetype": "Mid-Tier Performers",
+        "n_companies": 8,
+        "avg_esg": 35.3
+      },
+      {
+        "cluster_id": 1,
+        "archetype": "Balanced Leaders",
+        "n_companies": 12,
+        "avg_esg": 79.6
+      }
+    ]
+  },
+  "metrics": 15,
+  "normalisation": "Min-max per metric, direction-corrected",
+  "companies": 20,
+  "fiscal_year": 2023
+}
